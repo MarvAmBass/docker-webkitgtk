@@ -47,6 +47,7 @@ RUN apt-get -q -y update \
  && git clone https://git.suckless.org/surf \
  && cd surf \
  && make \
+ && sudo make install \
  \
  && cd \
  \
