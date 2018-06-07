@@ -1,5 +1,7 @@
 FROM debian:stretch
 
+COPY install.sh /usr/local/bin/install.sh
+
 RUN apt-get -q -y update \
  && apt-get -q -y install sudo \
                           \
@@ -30,6 +32,11 @@ RUN apt-get -q -y update \
  && cd webkitgtk*/ \
  \
  && cp /usr/local/bin/ninja ninja \
+ \
+ && chmod a+x /usr/local/bin/install.sh \
+ && cp /usr/local/bin/install.sh install.sh \
+ \
+ && ./install.sh \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
  && while ! ./ninja; do sleep 1; done # retry on errors \
