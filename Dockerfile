@@ -1,7 +1,9 @@
 FROM debian:stretch
 
 RUN apt-get -q -y update \
- && apt-get -q -y install wget \
+ && apt-get -q -y install sudo \
+                          \
+                          wget \
                           unzip \
                           \
                           git \
@@ -31,7 +33,7 @@ RUN apt-get -q -y update \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
  && while ! ./ninja; do sleep 1; done # retry on errors \
- && ninja install \
+ && sudo ninja install \
  \
  && cd \
  \
