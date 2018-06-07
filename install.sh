@@ -1,7 +1,7 @@
 #!/bin/sh
 
 download_package() {
-  wget -O - "https://packages.debian.org/sid/amd64/$1/download" 2>/dev/null | grep '\.deb">' | head -n1 | sed 's/.*="//g' | sed 's/".*$//g'
+  wget $(wget -O - "https://packages.debian.org/sid/amd64/$1/download" 2>/dev/null | grep '\.deb">' | head -n1 | sed 's/.*="//g' | sed 's/".*$//g')
 }
 
 apt-get update
