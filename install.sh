@@ -31,4 +31,4 @@ dpkg -i *.deb
 cd -
 
 # install webkit
-[ -e "./ninja" ] && sudo ./ninja install
+[ -e "./ninja" ] && ./ninja install
