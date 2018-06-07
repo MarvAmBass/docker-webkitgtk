@@ -42,10 +42,13 @@ RUN apt-get -q -y update \
  && while ! ./ninja; do sleep 1; done # retry on errors \
  && sudo ninja install \
  \
- && cd \
- \
  && git clone https://git.suckless.org/surf \
  && cd surf \
- && make
+ && make \
+ \
+ && cd \
+ \
+ && tar cvf /wk.tar webkitgtk*/
+ 
 
 
