@@ -1,5 +1,7 @@
 FROM debian:stretch
 
+ENV WEBKITGTK_VERSION=2.20.2
+
 COPY install.sh /usr/local/bin/install.sh
 
 RUN apt-get -q -y update \
@@ -27,7 +29,7 @@ RUN apt-get -q -y update \
  && mv ninja /usr/local/bin/ \
  && rm ninja-linux.zip \
  \
- && wget https://webkitgtk.org/releases/webkitgtk-2.20.2.tar.xz \
+ && wget "https://webkitgtk.org/releases/webkitgtk-$WEBKITGTK_VERSION.tar.xz" \
  && tar xvf webkitgtk-*.tar.xz \
  && cd webkitgtk*/ \
  \
