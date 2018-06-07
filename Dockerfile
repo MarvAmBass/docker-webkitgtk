@@ -31,12 +31,12 @@ RUN apt-get -q -y update \
  && tar xvf webkitgtk-*.tar.xz \
  && cd webkitgtk*/ \
  \
- && cp /usr/local/bin/ninja ninja \
- \
  && chmod a+x /usr/local/bin/install.sh \
  && cp /usr/local/bin/install.sh install.sh \
  \
  && ./install.sh \
+ \
+ && cp /usr/local/bin/ninja ninja \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
  && while ! ./ninja; do sleep 1; done # retry on errors \
