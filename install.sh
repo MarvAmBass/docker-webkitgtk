@@ -20,10 +20,10 @@ apt-get install -q -y libgstreamer1.0-dev libgstreamer-plugins-bad1.0-dev libgst
 if [ ! -d "brotli" ]; then
   mkdir brotli
   cd brotli
-    download_package libbrotli
+    download_package libbrotli1
     download_package libbrotli-dev
     download_package libwoff1
-    download_package libwoff1-dev
+    download_package libwoff-dev
   cd -
 fi
 cd brotli
