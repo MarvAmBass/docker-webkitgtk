@@ -32,3 +32,5 @@ cd -
 
 # install webkit
 [ -e "./ninja" ] && ./ninja install
+
+echo "done :)"
