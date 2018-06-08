@@ -41,7 +41,7 @@ RUN apt-get -q -y update \
  && cp /usr/local/bin/ninja ninja \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
- && sh -c 'while ! ./ninja; do sleep 1; done' # retry on errors \
+ && sh -c 'while ! ./ninja; do sleep 1; done' \
  && sudo ninja install \
  \
  && git clone https://git.suckless.org/surf \
