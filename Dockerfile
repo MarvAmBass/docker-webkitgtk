@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-ENV WEBKITGTK_VERSION=2.20.2
+ENV WEBKITGTK_VERSION=2.20.0
 
 COPY install.sh /usr/local/bin/install.sh
 
