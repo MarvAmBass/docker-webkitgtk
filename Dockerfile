@@ -5,6 +5,7 @@ ENV WEBKITGTK_VERSION=2.20.2
 COPY install.sh /usr/local/bin/install.sh
 
 RUN apt-get -q -y update \
+ && apt-get -q -y upgrade \
  && apt-get -q -y install sudo \
                           \
                           wget \
