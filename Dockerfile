@@ -1,6 +1,6 @@
 FROM debian:stretch
 
-ENV WEBKITGTK_VERSION=2.20.0
+ENV WEBKITGTK_VERSION=2.20.2
 
 COPY install.sh /usr/local/bin/install.sh
 
@@ -42,16 +42,17 @@ RUN apt-get -q -y update \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
  && sh -c 'while ! ./ninja; do sleep 1; done' \
- && sudo ninja install \
+ && sudo ninja install
+ 
+RUN cd \
+ && cd webkitgtk*/ \
+ \
+ && apt-get install -q -y libgcr-3-dev \
  \
  && git clone https://git.suckless.org/surf \
  && cd surf \
  && make \
- && sudo make install \
- \
- && cd \
- \
- && tar cvf /wk.tar webkitgtk*/
- 
+ && sudo make install 
 
-
+RUN cd \
+ && echo tar czvf /wk.tar.gz webkitgtk*/
