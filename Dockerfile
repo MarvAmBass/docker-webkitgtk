@@ -55,4 +55,4 @@ RUN cd \
  && sudo make install 
 
 RUN cd \
- && echo tar czvf /wk.tar.gz webkitgtk*/
+ && tar czvf /wk.tar.gz webkitgtk*/
