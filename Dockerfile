@@ -49,17 +49,7 @@ RUN apt-get -q -y update \
  && strip /usr/local/libexec/webkit*/* \
  && strip /usr/local/bin/* \
  \
- && rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/midi/* /usr/share/GeoIP/* /usr/share/perl/* /usr/share/cmake-*
- 
-RUN cd \
- && cd webkitgtk*/ \
+ && rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/midi/* /usr/share/GeoIP/* /usr/share/perl/* /usr/share/cmake-* \
  \
- && apt-get install -q -y libgcr-3-dev \
- \
- && git clone https://git.suckless.org/surf \
- && cd surf \
- && make \
- && sudo make install 
-
-RUN cd \
+ && cd \
  && tar czvf /wk.tar.gz webkitgtk*/
