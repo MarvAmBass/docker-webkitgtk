@@ -45,11 +45,11 @@ RUN apt-get -q -y update \
  && sh -c 'while ! ./ninja; do sleep 1; done' \
  && sudo ninja install \
  \
- && strip /usr/local/lib/* \
- && strip /usr/local/libexec/webkit*/* \
- && strip /usr/local/bin/* \
+ ; strip /usr/local/lib/* \
+ ; strip /usr/local/libexec/webkit*/* \
+ ; strip /usr/local/bin/* \
  \
- && rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/midi/* /usr/share/GeoIP/* /usr/share/perl/* /usr/share/cmake-* \
+ ; rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/midi/* /usr/share/GeoIP/* /usr/share/perl/* /usr/share/cmake-* \
  \
- && cd \
+ ; cd \
  && tar czvf /wk.tar.gz webkitgtk*/
