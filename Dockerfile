@@ -43,7 +43,13 @@ RUN apt-get -q -y update \
  \
  && cmake -DPORT=GTK -DCMAKE_BUILD_TYPE=RelWithDebInfo -GNinja \
  && sh -c 'while ! ./ninja; do sleep 1; done' \
- && sudo ninja install
+ && sudo ninja install \
+ \
+ && strip /usr/local/lib/* \
+ && strip /usr/local/libexec/webkit*/* \
+ && strip /usr/local/bin/* \
+ \
+ && rm -rf /usr/share/doc/* /usr/share/man/* /usr/share/midi/* /usr/share/GeoIP/* /usr/share/perl/* /usr/share/cmake-*
  
 RUN cd \
  && cd webkitgtk*/ \
